@@ -1,15 +1,19 @@
 import React from "react";
 
 class HornedBeast extends React.Component {
-  render(){
-    console.log(this.props);
-    return(
-      <article>
+
+  render() {
+    return (
+      <>
         <h2>{this.props.title}</h2>
-        <img alt="Narwhal">{this.props.imgageURL}</img>
-        <p>Description</p>
-      </article>
-    )
+        <img 
+        src={this.props.imgageURL} 
+        alt={this.props.description} 
+        title={this.props.title}
+        />
+        <p>{this.props.description}</p>
+      </>
+    );
   }
 }
 
