@@ -1,23 +1,59 @@
-import React from "react";
+import React from 'react';
+import './HornedBeast.css';
+import Card from 'react-bootstrap/Card';
+import {Button}  from 'react-bootstrap';
 
 class HornedBeast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: 0
+      likes: 0,
+      clicks: 0
     };
   }
+
+  handleLikes = () => {
+    this.setState({
+      likes: this.state.likes + 1
+    });
+  }
+
+  handleClick = () => {
+    this.setState({
+      clicks: this.state.clicks + 1
+    });
+  }
+
+
   render() {
     return (
       <>
-        <h2>{this.props.title}</h2>
-        <p>{this.state.likes} likes</p>
-        <img 
-          src={this.props.image_url} 
-          alt={this.props.description} 
-          title={this.props.title}
-        />
-        <p>{this.props.description}</p>
+        <Card className="hornedBeast">
+          <Card.Body>
+            <Card.Header as="h2"
+              id={this.props._id}
+              keyword={this.props.keyword}
+              >
+              {this.props.title}
+            </Card.Header>
+            <div className="imgCardText">
+              <img
+                className="beastMainImage"
+                src={this.props.image_url}
+                alt={this.props.description}
+                title={this.props.title}
+                onClick={(this.handleClick)}
+              />
+              <Card.Text>
+                {this.props.description}
+              </Card.Text>
+              </div>
+              <div className="likesWrap">
+                <Button className='likeButton' onClick={(this.handleLikes)}>Like</Button>
+              <Card.Text id='likeCount'>Likes:{this.state.likes}</Card.Text>
+            </div>
+          </Card.Body>
+        </Card>
       </>
     );
   }
