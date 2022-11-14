@@ -14,6 +14,7 @@ class SelectedBeast extends React.Component{
             <img id="modal"
               src={this.props.selectedBeast.img}
               alt={this.props.description}/>
+              <p>{this.props.selectedBeast.description}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.handleCloseModal}>Finished</Button>

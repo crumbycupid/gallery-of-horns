@@ -1,29 +1,44 @@
-import React from "react";
-import HornedBeast from "./HornedBeast";
-import data from "./data.json";
+import React from 'react';
+import HornedBeast from './HornedBeast';
+//import data from './data.json';
 import './Main.css';
-import { Form } from "react-bootstrap";
+import  Form  from "react-bootstrap/Form";
+import './App.css';
 
 class Main extends React.Component {
   render() {
 
 
-    let beastArr = data.map((beast, idx) => (
+//    let beastArr = data.map((beasts, idx) => (
 
-      <HornedBeast
-        _id={beast._id}
-        image_url={beast.image_url}
-        title={beast.title}
-        description={beast.description}
-        keyword={beast.keyword}
-        horns={beast.horns}
-        key={idx}
+/*      <HornedBeast
+        handleOpenModal={() => this.props.handleOpenModal(beasts)}
+        _id={beasts._id}
+        image_url={beasts.image_url}
+        title={beasts.title}
+        description={beasts.description}
+        keyword={beasts.keyword}
+        horns={beasts.horns}
+        key={beasts._id}}
       />
-    ))
+    ));*/
+let beastArray = this.props.beasts.map(beasts => {
+  return <HornedBeast
+    handleOpenModal={() => this.props.handleOpenModal(beasts)}
+    _id={beasts._id}
+    title={beasts.title}
+    image_url={beasts.image_url}
+    horns={beasts.horns}
+    keyword={beasts.keyword}
+    description={beasts.description}
+    key={beasts._id}
+    />
+});
+    
     return (
       <>
         <main>
-          <Form id="form"></Form>
+          <Form id="form">
           <fieldset>
             <Form.Group className="beastHorn">
               <Form.Label id="labelForm" htmlFor="Select">Search by Number of Horns</Form.Label>
@@ -36,9 +51,10 @@ class Main extends React.Component {
               </Form.Select>
             </Form.Group>
           </fieldset>
-          <div id="beast-display">
-            {beastArr}
-          </div>
+          </Form>
+          <article id="display">
+            {beastArray}
+          </article>
         </main>
       </>
     )
