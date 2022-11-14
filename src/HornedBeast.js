@@ -1,6 +1,8 @@
 import React from 'react';
 import './HornedBeast.css';
-import {Button, Card}  from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import './App.css'
 
 class HornedBeast extends React.Component {
   constructor(props) {
@@ -15,9 +17,9 @@ class HornedBeast extends React.Component {
     this.setState({
       likes: this.state.likes + 1
     });
-  }
+  };
 
-  handleClick = () => {
+  handleClicks = () => {
     this.setState({
       clicks: this.state.clicks + 1
     });
@@ -37,19 +39,18 @@ class HornedBeast extends React.Component {
             </Card.Header>
             <div className="imgCardText">
               <img
-                className="beastMainImage"
+                className='beastMainImage'
                 src={this.props.image_url}
                 alt={this.props.description}
-                title={this.props.title}
-                onClick={(this.handleClick)}
+                onClick={this.props.handleOpenModal}
               />
               <Card.Text>
                 {this.props.description}
               </Card.Text>
               </div>
-              <div className="likesWrap">
-                <Button className='likeButton' onClick={(this.handleLikes)}>Like</Button>
-              <Card.Text id='likeCount'>Likes:{this.state.likes}</Card.Text>
+              <div className="likesDiv">
+                <Button className='likesBtn' id='likeButton' onClick={(this.handleLikes)}>Like</Button>
+              <Card.Text id='likeCount'>Likes{this.state.likes}</Card.Text>
             </div>
           </Card.Body>
         </Card>
