@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Number and name of feature: Modal and Images
+
+Estimate of time needed to complete: 1 Day
+
+Start time: Wed 11/9 1700
+
+Finish time: Sun 11/13 2300
+
+Actual time needed to complete: 4.5 Days
